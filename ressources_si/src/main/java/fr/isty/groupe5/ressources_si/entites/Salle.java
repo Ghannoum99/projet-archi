@@ -1,4 +1,4 @@
-package fr.isty.ressources_si.entites;
+package fr.isty.groupe5.ressources_si.entites;
 
 public class Salle {
 

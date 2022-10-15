@@ -1,4 +1,4 @@
-package fr.isty.ressources_si.persistance;
+package fr.isty.groupe5.ressources_si.persistance;
 
 import java.io.File;
 import java.io.FileInputStream;

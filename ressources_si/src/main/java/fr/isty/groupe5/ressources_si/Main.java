@@ -1,4 +1,4 @@
-package fr.isty.ressources_si;
+package fr.isty.groupe5.ressources_si;
 
 public class Main {
 
