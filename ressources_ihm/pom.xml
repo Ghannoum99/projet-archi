@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>fr.isty</groupId>
-	<artifactId>ressources_si</artifactId>
+	<groupId>fr.isty.groupe5</groupId>
+	<artifactId>ressources_ihm</artifactId>
 	<version>0.0.1</version>
-	<name>Ressources SI</name>
+	<name>Ressources IHM</name>
 	<properties>
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
