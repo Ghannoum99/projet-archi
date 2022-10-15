@@ -15,7 +15,8 @@ public class Sauvegarde {
 				final ObjectOutputStream oo = new ObjectOutputStream(fo)) {
 			oo.writeObject(objet);
 		} catch (final IOException e) {
-			System.exit(0);
+			e.printStackTrace();
+			System.err.println("Erreur d'accès au fichier de sauvegarde");
 		}
 	}
 
@@ -24,7 +25,8 @@ public class Sauvegarde {
 		try (FileInputStream fi = new FileInputStream(fichier); ObjectInputStream oi = new ObjectInputStream(fi)) {
 			return oi.readObject();
 		} catch (IOException | ClassNotFoundException e) {
-			System.exit(0);
+			e.printStackTrace();
+			System.err.println("Erreur d'accès au fichier de sauvegarde");
 		}
 		return null;
 	}

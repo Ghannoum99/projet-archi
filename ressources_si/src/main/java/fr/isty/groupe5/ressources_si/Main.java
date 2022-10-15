@@ -14,6 +14,12 @@ public class Main {
 		}
 		SalleRepo.ajouter(new Salle("S11", 60));
 		System.out.println(SalleRepo.repo());
+		SalleRepo.sauvegarder();
+		SalleRepo.raz();
+		System.out.println(SalleRepo.repo());
+		SalleRepo.charger();
+		System.out.println(SalleRepo.repo());
+		SalleRepo.supprimerFichier();
 	}
 
 }

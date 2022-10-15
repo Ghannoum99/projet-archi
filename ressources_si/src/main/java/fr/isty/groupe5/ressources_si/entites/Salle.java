@@ -1,7 +1,12 @@
 package fr.isty.groupe5.ressources_si.entites;
 
-public class Salle {
+import java.io.Serializable;
 
+public class Salle implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private long identifiant;
 	private String nom;
 	private int capacite;
 
@@ -16,28 +21,23 @@ public class Salle {
 		}
 		this.nom = nom;
 		this.capacite = capacite;
-
 	}
 
-	public String getNom() {
+	public long identifiant() {
+		return identifiant;
+	}
+
+	public String nom() {
 		return nom;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public int getCapacite() {
+	public int capacite() {
 		return capacite;
-	}
-
-	public void setCapacite(int capacite) {
-		this.capacite = capacite;
 	}
 
 	@Override
 	public String toString() {
-		return "Salle [nom=" + nom + ", capacite=" + capacite + "]";
+		return "Salle [identifiant=" + identifiant + ", nom=" + nom + ", capacite=" + capacite + "]";
 	}
 
 }
