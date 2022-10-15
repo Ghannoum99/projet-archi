@@ -29,7 +29,8 @@ public class Sauvegarde {
 		return null;
 	}
 
-	public static void supprimer(File fichier) {
+	public static void supprimer(String nomFichier) {
+		final File fichier = new File(nomFichier);
 		fichier.delete();
 	}
 
