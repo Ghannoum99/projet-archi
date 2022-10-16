@@ -1,6 +1,7 @@
 package fr.isty.groupe5.ressources_si;
 
 import fr.isty.groupe5.ressources_si.entites.*;
+import fr.isty.groupe5.ressources_si.entites.Personne.Genre;
 
 import java.util.ArrayList;
 
@@ -8,6 +9,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Lancement du main");
+
 		try {
 			SalleRepo.ajouter(new Salle("S11", -1));
 		} catch (final AssertionError e) {
@@ -44,6 +46,26 @@ public class Main {
 		ReservationRepo.charger();
 		System.out.println(ReservationRepo.repo().toString());
 		ReservationRepo.supprimerFichier();
+
+
+		//Test Personne
+		System.out.println("\n\nTest Personne");
+		ArrayList<Personne> personnes = new ArrayList<>();
+
+		personnes.add(new Personne("VIDAL", "Antoine", 23, Genre.HOMME));
+        PersonneRepo.ajouter(personnes.get(0));
+        System.out.println(PersonneRepo.repo().toString());
+
+        personnes.add(new Personne("a", "b", 45, Genre.FEMME));
+        PersonneRepo.ajouter(personnes.get(1));
+        System.out.println(PersonneRepo.repo().toString());
+
+        PersonneRepo.sauvegarder();
+        PersonneRepo.raz();
+        System.out.println(PersonneRepo.repo().toString());
+        PersonneRepo.charger();
+        System.out.println(PersonneRepo.repo().toString());
+        PersonneRepo.supprimerFichier();
 	}
 
 }
