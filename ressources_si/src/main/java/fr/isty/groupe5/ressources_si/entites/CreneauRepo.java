@@ -30,7 +30,7 @@ public class CreneauRepo {
 
     @SuppressWarnings("unchecked")
     public static void charger() {
-        repo = (ArrayList<creneau>) Sauvegarde.charger(NOM_FICHIER);
+        repo = (ArrayList<Creneau>) Sauvegarde.charger(NOM_FICHIER);
     }
 
     public static void supprimerFichier() {
