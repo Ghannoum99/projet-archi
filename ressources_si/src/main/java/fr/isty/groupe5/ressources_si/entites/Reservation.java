@@ -27,6 +27,13 @@ public class Reservation implements Serializable {
     }
 
     public long getIdentifiant() { return identifiant; }
+    public Salle getSalle() { return salle; }
     public ArrayList<Creneau> getCreneaux() { return creneaux; }
+    public void setCreneaux(ArrayList<Creneau> creneaux) { this.creneaux = creneaux; }
     public String getPersonne() { return personne; }
+
+    @Override
+    public String toString() {
+        return "\n" + salle.toString() + "\n" + creneaux.toString() + "\n" + personne + "\n";
+    }
 }

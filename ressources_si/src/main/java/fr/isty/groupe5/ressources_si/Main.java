@@ -1,7 +1,8 @@
 package fr.isty.groupe5.ressources_si;
 
-import fr.isty.groupe5.ressources_si.entites.Salle;
-import fr.isty.groupe5.ressources_si.entites.SalleRepo;
+import fr.isty.groupe5.ressources_si.entites.*;
+
+import java.util.ArrayList;
 
 public class Main {
 
@@ -20,6 +21,29 @@ public class Main {
 		SalleRepo.charger();
 		System.out.println(SalleRepo.repo());
 		SalleRepo.supprimerFichier();
+
+		// Test Reservation
+		ArrayList<Creneau> creneaux = new ArrayList<>();
+		creneaux.add(new Creneau("12:45", "13:45"));
+		creneaux.add(new Creneau("15:00", "17:00"));
+		ReservationRepo.ajouter(new Reservation(
+				new Salle("S12", 15),
+				creneaux,
+				"Jacques Tea"
+		));
+		ReservationRepo.ajouter(new Reservation(
+				new Salle("113", 30),
+				creneaux,
+				"Alex6 Raffière"
+		));
+
+		System.out.println(ReservationRepo.repo().toString());
+		ReservationRepo.sauvegarder();
+		ReservationRepo.raz();
+		System.out.println(ReservationRepo.repo().toString());
+		ReservationRepo.charger();
+		System.out.println(ReservationRepo.repo().toString());
+		ReservationRepo.supprimerFichier();
 	}
 
 }

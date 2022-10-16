@@ -7,7 +7,7 @@ public class Creneau implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private long identifinat;
+	private long identifiant;
 	private String debut;
 	private String fin;
 	
