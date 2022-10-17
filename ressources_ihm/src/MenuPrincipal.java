@@ -1,4 +1,4 @@
-package swingTest;
+package src;
 
 import java.awt.Color;
 import java.awt.Font;
