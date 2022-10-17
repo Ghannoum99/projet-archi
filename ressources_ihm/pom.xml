@@ -29,7 +29,7 @@
 					<configuration>
 						<archive>
 							<manifest>
-								<mainClass>src.Main</mainClass>
+								<mainClass>swing.Main</mainClass>
 							</manifest>
 						</archive>
 					</configuration>
