@@ -9,16 +9,15 @@ public class Reservation implements Serializable {
     private long identifiant;
     private Salle salle;
     private ArrayList<Creneau> creneaux;
-    //@todo: Mettre la classe Personne
-    private String personne;
+    private Personne personne;
 
     @SuppressWarnings("unused") // Constructeur par défaut interdit
     private Reservation() {
         throw new RuntimeException();
     }
 
-    public Reservation(Salle salle, ArrayList<Creneau> creneaux, String personne) {
-        if(salle == null || creneaux.isEmpty()) {
+    public Reservation(Salle salle, ArrayList<Creneau> creneaux, Personne personne) {
+        if(salle == null || creneaux.isEmpty() || personne == null) {
             throw new AssertionError();
         }
         this.salle = salle;
@@ -30,10 +29,10 @@ public class Reservation implements Serializable {
     public Salle getSalle() { return salle; }
     public ArrayList<Creneau> getCreneaux() { return creneaux; }
     public void setCreneaux(ArrayList<Creneau> creneaux) { this.creneaux = creneaux; }
-    public String getPersonne() { return personne; }
+    public Personne getPersonne() { return personne; }
 
     @Override
     public String toString() {
-        return "\n" + salle.toString() + "\n" + creneaux.toString() + "\n" + personne + "\n";
+        return "\n" + salle.toString() + "\n" + creneaux.toString() + "\n" + personne.toString() + "\n";
     }
 }

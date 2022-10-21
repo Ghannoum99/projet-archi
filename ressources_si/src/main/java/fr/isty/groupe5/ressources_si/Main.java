@@ -31,12 +31,12 @@ public class Main {
 		ReservationRepo.ajouter(new Reservation(
 				new Salle("S12", 15),
 				creneaux,
-				"Jacques Tea"
+				new Personne("TEA", "Jacques", 22, Genre.HOMME)
 		));
 		ReservationRepo.ajouter(new Reservation(
 				new Salle("113", 30),
 				creneaux,
-				"Alex6 Raffière"
+				new Personne("Raffière", "Alex6 ", 22, Genre.HOMME)
 		));
 
 		System.out.println(ReservationRepo.repo().toString());
@@ -67,5 +67,6 @@ public class Main {
         System.out.println(PersonneRepo.repo().toString());
         PersonneRepo.supprimerFichier();
 	}
+
 
 }

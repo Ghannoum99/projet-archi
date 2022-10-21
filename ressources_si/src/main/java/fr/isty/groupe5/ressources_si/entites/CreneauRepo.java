@@ -16,8 +16,8 @@ public class CreneauRepo {
         repo.add(creneau);
     }
 
-    public static void supprimer(Creneau creneau) {
-        repo.remove(creneau);
+    public static void supprimer(long identifiant) {
+        repo.removeIf(creneau -> (creneau.getIdentifiant() == identifiant) );
     }
 
     public static void raz() {

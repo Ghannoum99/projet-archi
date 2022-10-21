@@ -17,9 +17,9 @@ public class SalleRepo {
 		repo.add(salle);
 	}
 
-	public static void supprimer(Salle salle) {
-		repo.remove(salle);
-	}
+    public static void supprimer(long identifiant) {
+        repo.removeIf(salle -> (salle.getIdentifiant() == identifiant) );
+    }
 
 	public static void raz() {
 		repo = new ArrayList<>();

@@ -17,8 +17,8 @@ public class PersonneRepo {
         repo.add(personne);
     }
 
-    public static void supprimer(Personne personne) {
-        repo.remove(personne);
+    public static void supprimer(long identifiant) {
+        repo.removeIf(creneau -> (creneau.getIdentifiant() == identifiant) );
     }
 
     public static void raz() {

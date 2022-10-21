@@ -17,8 +17,8 @@ public class ReservationRepo {
         repo.add(reservation);
     }
 
-    public static void supprimer(Reservation reservation) {
-        repo.remove(reservation);
+    public static void supprimer(long identifiant) {
+        repo.removeIf(reservation -> (reservation.getIdentifiant() == identifiant) );
     }
 
     public static void raz() {

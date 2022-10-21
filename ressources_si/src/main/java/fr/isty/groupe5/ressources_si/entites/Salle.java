@@ -23,17 +23,9 @@ public class Salle implements Serializable {
 		this.capacite = capacite;
 	}
 
-	public long identifiant() {
-		return identifiant;
-	}
-
-	public String nom() {
-		return nom;
-	}
-
-	public int capacite() {
-		return capacite;
-	}
+	public long getIdentifiant() { return identifiant; }
+	public String getNom() { return nom; }
+	public int getCapacite() { return capacite; }
 
 	@Override
 	public String toString() {
