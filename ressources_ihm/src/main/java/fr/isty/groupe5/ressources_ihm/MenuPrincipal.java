@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
 
 import javax.swing.JButton;
@@ -23,7 +25,7 @@ public class MenuPrincipal extends JFrame {
 	private JButton newBooking;
 	private JButton boutonAjouterPersonne;
 	private JButton boutonAjouterSalle;
-	
+
 	public MenuPrincipal() {
 		this.setTitle("Groupe 5 - IATIC 5");
 		this.setResizable(false);
@@ -78,11 +80,12 @@ public class MenuPrincipal extends JFrame {
 		newBooking.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		newBooking.setBackground(new Color(46, 204, 113));
 		newBooking.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				MenuReservation menuReservation = new MenuReservation();
-				menuReservation.show();
-			}
-		});
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuReservation menuReservation = new MenuReservation("Nouvelle réservation");
+                menuReservation.setVisible(true);
+            }
+        });
 		newBooking.setHorizontalTextPosition(JButton.CENTER);
 		panelMenu.add(newBooking);
 

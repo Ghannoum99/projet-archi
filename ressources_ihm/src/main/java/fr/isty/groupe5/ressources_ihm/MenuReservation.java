@@ -50,6 +50,7 @@ public class MenuReservation extends MiniMenu {
 		boutonAnnuler.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		boutonAnnuler.setBackground(new Color(46, 204, 113));
 		boutonAnnuler.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
