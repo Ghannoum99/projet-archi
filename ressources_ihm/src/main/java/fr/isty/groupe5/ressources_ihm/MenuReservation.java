@@ -48,6 +48,11 @@ public class MenuReservation extends MiniMenu {
 		boutonAnnuler.setText("Annuler");
 		boutonAnnuler.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		boutonAnnuler.setBackground(new Color(46, 204, 113));
+		boutonAnnuler.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		boutonAnnuler.addActionListener(e -> dispose());
 		boutonAnnuler.setHorizontalTextPosition(JButton.CENTER);
 		boutonAnnuler.setOpaque(true);

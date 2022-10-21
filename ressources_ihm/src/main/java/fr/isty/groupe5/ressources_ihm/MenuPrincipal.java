@@ -21,9 +21,9 @@ public class MenuPrincipal extends JFrame {
 	private final JPanel panelMenu;
 	private final JPanel panelGauche;
 	private JButton newBooking;
-	private JComboBox<String> listeRessources;
-	private JComboBox<String> listeSalles;
-
+	private JButton boutonAjouterPersonne;
+	private JButton boutonAjouterSalle;
+	
 	public MenuPrincipal() {
 		this.setTitle("Groupe 5 - IATIC 5");
 		this.setResizable(false);
@@ -61,8 +61,8 @@ public class MenuPrincipal extends JFrame {
 
 		afficherTitre();
 		afficherBoutonNewBooking();
-		afficherListeRessources();
-		afficherListeSalles();
+		afficherBoutonAjouterPersonne();
+		afficherBoutonAjouterSalle();
 		afficherCalendrier();
 
 	}
@@ -77,22 +77,38 @@ public class MenuPrincipal extends JFrame {
 		newBooking.setText("New Booking");
 		newBooking.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		newBooking.setBackground(new Color(46, 204, 113));
+		newBooking.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MenuReservation menuReservation = new MenuReservation();
+				menuReservation.show();
+			}
+		});
 		newBooking.setHorizontalTextPosition(JButton.CENTER);
 		panelMenu.add(newBooking);
 
 	}
 
-	public void afficherListeRessources() {
-		listeRessources = new JComboBox<>();
-		listeRessources.setBounds(340, 23, 85, 26);
-		panelMenu.add(listeRessources);
+	public void afficherBoutonAjouterPersonne() {
+		boutonAjouterPersonne = new JButton();
+		boutonAjouterPersonne.setBounds(497, 18, 143, 38);
+		boutonAjouterPersonne.setText("Ajouter une Personne");
+		boutonAjouterPersonne.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		boutonAjouterPersonne.setBackground(new Color(166, 166, 166));
+		boutonAjouterPersonne.setHorizontalTextPosition(JButton.CENTER);
+		boutonAjouterPersonne.setOpaque(true);
+		panelMenu.add(boutonAjouterPersonne);
 
 	}
 
-	public void afficherListeSalles() {
-		listeSalles = new JComboBox<>();
-		listeSalles.setBounds(437, 23, 85, 26);
-		panelMenu.add(listeSalles);
+	public void afficherBoutonAjouterSalle() {
+		boutonAjouterSalle = new JButton();
+		boutonAjouterSalle.setBounds(341, 18, 143, 38);
+		boutonAjouterSalle.setText("Ajouter une Salle");
+		boutonAjouterSalle.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		boutonAjouterSalle.setBackground(new Color(166, 166, 166));
+		boutonAjouterSalle.setHorizontalTextPosition(JButton.CENTER);
+		boutonAjouterSalle.setOpaque(true);
+		panelMenu.add(boutonAjouterSalle);
 	}
 
 	public void afficherTitre() {
@@ -103,8 +119,8 @@ public class MenuPrincipal extends JFrame {
 	}
 
 	public void afficherCalendrier() {
-		final Calendar calendrier = new Calendar();
-		calendrier.setTheme(ThemeType.Light);
+		final com.mindfusion.scheduling.Calendar calendrier = new com.mindfusion.scheduling.Calendar();
+		//calendrier.setTheme(ThemeType.Light);
 		calendrier.setBounds(205, 74, 895, 679);
 		panelPrincipal.add(calendrier);
 	}
