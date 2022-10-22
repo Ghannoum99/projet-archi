@@ -11,6 +11,8 @@ public class MenuPrincipal extends JFrame {
 	private final JPanel panelPrincipal;
 	private final JPanel panelMenu;
 	private final JPanel panelGauche;
+	private JTable tableReservations;
+	private String listeReservations;
 
 	public MenuPrincipal() {
 		this.setTitle("Groupe 5 - IATIC 5");
@@ -55,7 +57,8 @@ public class MenuPrincipal extends JFrame {
 		afficherBoutonSauvegarder();
 		afficherBoutonSupprimerSalle();
 		afficherBoutonSupprimerPersonne();
-		afficherCalendrier();
+		afficherBoutonSupprimerCreneau();
+		afficherTableauReservation();
 	}
 
 	/* FONCTION PERMETTANT D'AFFICHER LE BOUTON : NOUVELLE RESERVATION **/
@@ -170,6 +173,21 @@ public class MenuPrincipal extends JFrame {
 		panelGauche.add(boutonSupprimerPersonne);
 	}
 
+	public void afficherBoutonSupprimerCreneau() {
+		JButton boutonSupprimerCreneau = new JButton();
+		boutonSupprimerCreneau.setBounds(25, 134, 150, 38);
+		boutonSupprimerCreneau.setText("Creneaux");
+		boutonSupprimerCreneau.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		boutonSupprimerCreneau.addActionListener(e -> {
+			MenuSupprimerCreneau menuSupprimerCreneau = new MenuSupprimerCreneau("Suppression d'un creneau");
+			menuSupprimerCreneau.setVisible(true);
+		});
+		boutonSupprimerCreneau.setBackground(new Color(166, 166, 166));
+		boutonSupprimerCreneau.setHorizontalTextPosition(JButton.CENTER);
+		boutonSupprimerCreneau.setOpaque(true);
+		panelGauche.add(boutonSupprimerCreneau);
+	}
+
 	public void afficherTitre() {
 		final JLabel titre = new JLabel("Titre");
 		titre.setFont(new Font("Times New Roman", Font.PLAIN, 20));
@@ -177,10 +195,20 @@ public class MenuPrincipal extends JFrame {
 		panelMenu.add(titre);
 	}
 
-	public void afficherCalendrier() {
-		final com.mindfusion.scheduling.Calendar calendrier = new com.mindfusion.scheduling.Calendar();
-		//calendrier.setTheme(ThemeType.Light);
-		calendrier.setBounds(205, 74, 895, 679);
-		panelPrincipal.add(calendrier);
+	public void afficherTableauReservation() {
+		final String colonnes[] = {"Réservations","Salle","Personne", "Date", "Créneau"};
+        String listeReservations[] []= {
+                {"Jean","Herard","Masculin","Herard","Masculin"},
+                {"Wiliams","Jean","Masculin","Herard","Masculin"},
+                {"Chuck","Batosky","Masculin","Herard","Masculin"},
+                {"Joel","Fouckan","Masculin","Herard","Masculin"}
+        };
+                
+		tableReservations = new JTable(listeReservations, colonnes);
+		tableReservations.setBounds(205, 100, 895, 679);
+		
+		JScrollPane scrollPane = new JScrollPane(tableReservations);
+		scrollPane.setBounds(356, 72, 744, 681);
+		panelGauche.add(scrollPane);
 	}
 }
