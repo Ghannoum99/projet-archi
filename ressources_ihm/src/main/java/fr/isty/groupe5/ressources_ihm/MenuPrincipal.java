@@ -1,5 +1,7 @@
 package fr.isty.groupe5.ressources_ihm;
 
+import fr.isty.groupe5.ressources_si.Controleur;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -8,9 +10,7 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Calendar;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,6 +25,8 @@ public class MenuPrincipal extends JFrame {
 	private JButton newBooking;
 	private JButton boutonAjouterPersonne;
 	private JButton boutonAjouterSalle;
+	private JButton boutonCharger;
+	private JButton boutonSauvegarder;
 
 	public MenuPrincipal() {
 		this.setTitle("Groupe 5 - IATIC 5");
@@ -65,8 +67,9 @@ public class MenuPrincipal extends JFrame {
 		afficherBoutonNewBooking();
 		afficherBoutonAjouterPersonne();
 		afficherBoutonAjouterSalle();
+		afficherBoutonCharger();
+		afficherBoutonSauvegarder();
 		afficherCalendrier();
-
 	}
 
 	/*****************************************************************************/
@@ -125,6 +128,46 @@ public class MenuPrincipal extends JFrame {
 		boutonAjouterSalle.setHorizontalTextPosition(JButton.CENTER);
 		boutonAjouterSalle.setOpaque(true);
 		panelMenu.add(boutonAjouterSalle);
+	}
+
+	public void afficherBoutonCharger() {
+		boutonCharger = new JButton();
+		boutonCharger.setBounds(653, 18, 143, 38);
+		boutonCharger.setText("Charger");
+		boutonCharger.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		boutonCharger.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Controleur.chargerFichierCreneaux();
+				Controleur.chargerFichierPersonnes();
+				Controleur.chargerFichierReservations();
+				Controleur.chargerFichierSalles();
+			}
+		});
+		boutonCharger.setBackground(new Color(166, 166, 166));
+		boutonCharger.setHorizontalTextPosition(JButton.CENTER);
+		boutonCharger.setOpaque(true);
+		panelMenu.add(boutonCharger);
+	}
+
+	public void afficherBoutonSauvegarder() {
+		boutonSauvegarder = new JButton();
+		boutonSauvegarder.setBounds(809, 18, 143, 38);
+		boutonSauvegarder.setText("Sauvegarder");
+		boutonSauvegarder.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		boutonSauvegarder.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Controleur.sauvegarderFichierCreneaux();
+				Controleur.sauvegarderFichierPersonnes();
+				Controleur.sauvegarderFichierReservations();
+				Controleur.sauvegarderFichierSalles();
+			}
+		});
+		boutonSauvegarder.setBackground(new Color(166, 166, 166));
+		boutonSauvegarder.setHorizontalTextPosition(JButton.CENTER);
+		boutonSauvegarder.setOpaque(true);
+		panelMenu.add(boutonSauvegarder);
 	}
 
 	public void afficherTitre() {
