@@ -1,13 +1,13 @@
 package fr.isty.groupe5.ressources_ihm;
 
-import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
+
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+import fr.isty.groupe5.ressources_si.Controleur;
 
 @SuppressWarnings({ "serial" })
 public class MenuAjouterSalle extends MiniMenu {
@@ -22,7 +22,6 @@ public class MenuAjouterSalle extends MiniMenu {
 		
 		afficherNomSalle();
 		afficherCapacite();
-		
 	}
 	
 	public void afficherNomSalle() {
@@ -48,5 +47,23 @@ public class MenuAjouterSalle extends MiniMenu {
 		panelPrincipal.add(capacite);
 		capacite.setColumns(10);
 	}
+
+	@Override
+	public void ajouterActionBoutonValider() {
+		boutonValider.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int cap = Integer.parseInt(capacite.getText());
+
+				if(nomSalle.getText().isBlank() || cap <= 0) {
+					return;
+				}
+				Controleur.ajouterSalle(Identifiant.genererIdentifiant(), nomSalle.getText(), cap);
+				Controleur.afficherSallesString();
+				dispose();
+			}
+		});
+	}
+
 
 }

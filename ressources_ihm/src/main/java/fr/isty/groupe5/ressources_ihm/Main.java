@@ -1,10 +1,6 @@
 package fr.isty.groupe5.ressources_ihm;
 
 import java.awt.EventQueue;
-import java.util.ArrayList;
-import fr.isty.groupe5.ressources_si.Controller;
-import fr.isty.groupe5.ressources_si.entites.*;
-import fr.isty.groupe5.ressources_si.entites.Personne.Genre;
 
 public class Main {
 

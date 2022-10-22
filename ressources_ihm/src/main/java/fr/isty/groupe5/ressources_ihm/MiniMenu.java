@@ -4,9 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 @SuppressWarnings({ "serial" })
 public class MiniMenu extends JFrame {
@@ -33,7 +31,7 @@ public class MiniMenu extends JFrame {
 		
 		afficherBoutonAnnuler();
 		afficherBoutonValider();
-
+		ajouterActionBoutonValider();
 	}
 	
 	public void afficherBoutonAnnuler() {
@@ -64,4 +62,5 @@ public class MiniMenu extends JFrame {
 		
 	}
 
+	public void ajouterActionBoutonValider() {}
 }

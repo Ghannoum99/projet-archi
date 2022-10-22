@@ -1,8 +1,13 @@
 package fr.isty.groupe5.ressources_ihm;
 
+import fr.isty.groupe5.ressources_si.Controleur;
+
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 @SuppressWarnings({ "serial" })
 public class MenuAjouterPersonne extends MiniMenu {
@@ -63,10 +68,29 @@ public class MenuAjouterPersonne extends MiniMenu {
 		age.setBounds(107, 129, 130, 26);
 		panelPrincipal.add(age);
 		age.setColumns(10);
-		
+
+		ArrayList<String> listeGenre = Controleur.getGenres();
 		genre = new JComboBox<String>();
+		for(String valeur: listeGenre) {
+			genre.addItem(valeur);
+		}
 		genre.setBounds(391, 130, 130, 27);
 		panelPrincipal.add(genre);
 	}
-	
+
+	@Override
+	public void ajouterActionBoutonValider() {
+		boutonValider.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Integer valeurAge = Integer.parseInt(age.getText());
+				if(nom.getText().isBlank() || prenom.getText().isBlank() || valeurAge <= 0 || !genre.isValid()) {
+					return;
+				}
+				Controleur.ajouterPersonne(Identifiant.genererIdentifiant(), nom.getText(), prenom.getText(), valeurAge, genre.getSelectedItem().toString());
+				Controleur.afficherPersonnesString();
+				dispose();
+			}
+		});
+	}
 }
