@@ -4,9 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 @SuppressWarnings({ "serial" })
 public class MiniMenu extends JFrame {
@@ -15,6 +13,7 @@ public class MiniMenu extends JFrame {
 	protected JButton boutonValider;
 	private JButton boutonAnnuler;
 	protected JPanel panelPrincipal;
+	protected JLabel texteErreur;
 
 	public MiniMenu(String titre) {
 		this.titre = titre;
@@ -33,6 +32,7 @@ public class MiniMenu extends JFrame {
 		
 		afficherBoutonAnnuler();
 		afficherBoutonValider();
+		afficherTexteErreur();
 
 	}
 	
@@ -64,4 +64,11 @@ public class MiniMenu extends JFrame {
 		
 	}
 
+	private void afficherTexteErreur() {
+		texteErreur = new JLabel();
+		texteErreur.setForeground(Color.RED);
+		texteErreur.setFont(new Font("Arial", Font.PLAIN, 13));
+		texteErreur.setBounds(20, 250, 538, 30);
+		panelPrincipal.add(texteErreur);
+	}
 }
