@@ -2,11 +2,13 @@ package fr.isty.groupe5.ressources_si;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import fr.isty.groupe5.ressources_si.entites.*;
 import fr.isty.groupe5.ressources_si.entites.Personne.Genre;
 
-public class Controller {
+public class Controleur {
     
     /* Méthodes liées aux créneaux */
     public static ArrayList<Creneau> getCreneauRepo() { return CreneauRepo.repo(); }
@@ -30,7 +32,7 @@ public class Controller {
     public static void supprimerFichierPersonnes() { PersonneRepo.supprimerFichier(); }
     public static void afficherPersonnesString() { System.out.println(PersonneRepo.repo().toString()); } //pour débugger
     
-    public static ArrayList<Genre> getGenres() { return new ArrayList<Genre>(Arrays.asList(Genre.values())); }
+    public static ArrayList<String> getGenres() { return new ArrayList<String>(Stream.of(Genre.values()).map(Genre::name).collect(Collectors.toList())); }
     
     /* Méthodes liées aux réservations */
     public static ArrayList<Reservation> getReservationRepo() { return ReservationRepo.repo(); }
