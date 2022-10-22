@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 public class Identifiant {
     public static long genererIdentifiant() {
         LocalDateTime date = LocalDateTime.now();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSSS");
-        return Long.parseLong(format.format(date));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSSS");
+        return Long.parseLong(date.format(formatter));
     }
 }
