@@ -1,6 +1,7 @@
 package fr.isty.groupe5.ressources_si.entites;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import fr.isty.groupe5.ressources_si.persistance.Sauvegarde;
 
@@ -13,6 +14,10 @@ public class PersonneRepo {
         return repo;
     }
 
+    public static Personne getPersonne(long identifiant) {
+        return repo.stream().filter(personne -> personne.getIdentifiant() == identifiant).limit(1).collect(Collectors.toList()).get(0); 
+    }
+    
     public static void ajouter(Personne personne) {
         repo.add(personne);
     }

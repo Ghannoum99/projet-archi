@@ -1,6 +1,7 @@
 package fr.isty.groupe5.ressources_si;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import fr.isty.groupe5.ressources_si.entites.*;
 import fr.isty.groupe5.ressources_si.entites.Personne.Genre;
@@ -8,7 +9,9 @@ import fr.isty.groupe5.ressources_si.entites.Personne.Genre;
 public class Controller {
     
     /* Méthodes liées aux créneaux */
-    public static void ajouterCreneau(String debut, String fin) { CreneauRepo.ajouter(new Creneau(debut, fin)); }
+    public static ArrayList<Creneau> getCreneauRepo() { return CreneauRepo.repo(); }
+    public static Creneau accederCreneau(long identifiant) { return CreneauRepo.getCreneau(identifiant); }
+    public static void ajouterCreneau(long identifiant, String debut, String fin) { CreneauRepo.ajouter(new Creneau(identifiant, debut, fin)); }
     public static void supprimerCreneau(long identifiant) { CreneauRepo.supprimer(identifiant); }
     public static void razCreneaux() { CreneauRepo.raz(); }
     public static void sauvegarderFichierCreneaux() { CreneauRepo.sauvegarder(); }
@@ -17,7 +20,9 @@ public class Controller {
     public static void afficherCreneauxString() { System.out.println(CreneauRepo.repo().toString()); } //pour débugger
     
     /* Méthodes liées aux personnes */
-    public static void ajouterPersonne(String nom, String prenom, int age, Genre genre) { PersonneRepo.ajouter(new Personne(nom, prenom, age, genre)); }
+    public static ArrayList<Personne> getPersonneRepo() { return PersonneRepo.repo(); }
+    public static Personne accederPersonne(long identifiant) { return PersonneRepo.getPersonne(identifiant); }
+    public static void ajouterPersonne(long identifiant, String nom, String prenom, int age, String genre) {PersonneRepo.ajouter(new Personne(identifiant, nom, prenom, age, Genre.valueOf(genre))); }
     public static void supprimerPersonne(long identifiant) { PersonneRepo.supprimer(identifiant); }
     public static void razPersonnes() { PersonneRepo.raz(); }
     public static void sauvegarderFichierPersonnes() { PersonneRepo.sauvegarder(); }
@@ -25,8 +30,12 @@ public class Controller {
     public static void supprimerFichierPersonnes() { PersonneRepo.supprimerFichier(); }
     public static void afficherPersonnesString() { System.out.println(PersonneRepo.repo().toString()); } //pour débugger
     
+    public static ArrayList<Genre> getGenres() { return new ArrayList<Genre>(Arrays.asList(Genre.values())); }
+    
     /* Méthodes liées aux réservations */
-    public static void ajouterReservation(Salle salle, ArrayList<Creneau> creneaux, Personne personne) { ReservationRepo.ajouter(new Reservation(salle, creneaux, personne)); }
+    public static ArrayList<Reservation> getReservationRepo() { return ReservationRepo.repo(); }
+    public static Reservation accederReservation(long identifiant) { return ReservationRepo.getReservation(identifiant); }
+    public static void ajouterReservation(long identifiant, Salle salle, ArrayList<Creneau> creneaux, Personne personne) { ReservationRepo.ajouter(new Reservation(identifiant, salle, creneaux, personne)); }
     public static void supprimerReservation(long identifiant) { ReservationRepo.supprimer(identifiant); }
     public static void razReservations() { ReservationRepo.raz(); }
     public static void sauvegarderFichierReservations() { ReservationRepo.sauvegarder(); }
@@ -35,7 +44,9 @@ public class Controller {
     public static void afficherReservationsString() { System.out.println(ReservationRepo.repo().toString()); } //pour débugger
     
     /* Méthodes liées aux salles */
-    public static void ajouterSalle(String nom, int capacite) { SalleRepo.ajouter(new Salle(nom, capacite)); }
+    public static ArrayList<Salle> getSalleRepo() { return SalleRepo.repo(); }
+    public static Salle accederSalle(long identifiant) { return SalleRepo.getSalle(identifiant); }
+    public static void ajouterSalle(long identifiant, String nom, int capacite) { SalleRepo.ajouter(new Salle(identifiant, nom, capacite)); }
     public static void supprimerSalle(long identifiant) { SalleRepo.supprimer(identifiant); }
     public static void razSalles() { SalleRepo.raz(); }
     public static void sauvegarderFichierSalles() { SalleRepo.sauvegarder(); }

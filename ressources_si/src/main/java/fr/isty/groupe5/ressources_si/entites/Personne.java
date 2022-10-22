@@ -4,17 +4,17 @@ import java.io.Serializable;
 
 public class Personne implements Serializable {
 
-	private static final long serialVersionUID = 1L;    
+    private static final long serialVersionUID = 1L;    
 
     public enum Genre {HOMME, FEMME;}
-	
+    
     private long identifiant;
     private String prenom;
     private String nom;
     private int age;
     private Genre genre;
     
-    public Personne(String nom, String prenom, int age, Genre genre) {
+    public Personne(long identifiant, String nom, String prenom, int age, Genre genre) {
         if(nom.isBlank() || prenom.isBlank())
         {
             throw new AssertionError();
@@ -30,6 +30,7 @@ public class Personne implements Serializable {
             throw new AssertionError();
         }
         
+        this.identifiant = identifiant;
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
