@@ -1,4 +1,4 @@
-package fr.isty.groupe5.ressources_si.persistance;
+package fr.isty.groupe5.ressources_si.controleur.persistance;
 
 import java.io.File;
 import java.io.FileInputStream;

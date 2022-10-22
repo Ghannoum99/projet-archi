@@ -1,9 +1,9 @@
-package fr.isty.groupe5.ressources_si.entites;
+package fr.isty.groupe5.ressources_si.controleur.entites;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-import fr.isty.groupe5.ressources_si.persistance.Sauvegarde;
+import fr.isty.groupe5.ressources_si.controleur.persistance.Sauvegarde;
 
 public class SalleRepo {
 

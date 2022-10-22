@@ -1,8 +1,9 @@
 package fr.isty.groupe5.ressources_ihm;
 
-import fr.isty.groupe5.ressources_si.Controleur;
-
 import javax.swing.*;
+
+import fr.isty.groupe5.ressources_si.controleur.Controleur;
+
 import java.awt.*;
 
 

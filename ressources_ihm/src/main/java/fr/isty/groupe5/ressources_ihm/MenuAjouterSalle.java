@@ -1,7 +1,8 @@
 package fr.isty.groupe5.ressources_ihm;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
-import fr.isty.groupe5.ressources_si.Controleur;
+
+import fr.isty.groupe5.ressources_si.controleur.Controleur;
 
 import javax.swing.*;
 import java.awt.*;
