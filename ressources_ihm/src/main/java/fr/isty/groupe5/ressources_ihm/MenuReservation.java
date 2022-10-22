@@ -11,6 +11,7 @@ public class MenuReservation extends MiniMenu {
 	private JLabel labelSalle;
 	private JLabel labelPersonne;
 	private JLabel labelDebut;
+	private JLabel labelDate;
 	private JLabel labelFin;
 	private JComboBox<String> listeSalles;
 	private JComboBox<String> listePersonnes;
@@ -22,6 +23,7 @@ public class MenuReservation extends MiniMenu {
 		afficherListePersonnes();
 		afficherDebut();
 		afficherFin();
+		afficherDate();
 	}
 	
 	public void afficherListeSalles() {
@@ -29,6 +31,7 @@ public class MenuReservation extends MiniMenu {
 		labelSalle.setFont(new Font("Arial", Font.PLAIN, 13));
 		labelSalle.setBounds(21, 33, 52, 27);
 		this.panelPrincipal.add(labelSalle);
+		
 		listeSalles = new JComboBox<String>();
 		listeSalles.setBounds(123, 78, 124, 27);
 		this.panelPrincipal.add(listeSalles);
@@ -59,4 +62,12 @@ public class MenuReservation extends MiniMenu {
 		labelFin.setBounds(326, 83, 36, 16);
 		this.panelPrincipal.add(labelFin);
 	}
+	
+	public void afficherDate() {
+		labelDate = DefaultComponentFactory.getInstance().createLabel("Date :");
+		labelDate.setFont(new Font("Arial", Font.PLAIN, 13));
+		labelDate.setBounds(21, 133, 61, 16);
+		this.panelPrincipal.add(labelDate);
+	}
+	
 }
