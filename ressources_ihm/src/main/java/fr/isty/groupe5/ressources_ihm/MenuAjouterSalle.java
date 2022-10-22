@@ -25,7 +25,6 @@ public class MenuAjouterSalle extends MiniMenu {
 		
 		afficherNomSalle();
 		afficherCapacite();
-		ajouterActionBoutonValider();
 	}
 	
 	public void afficherNomSalle() {
@@ -52,17 +51,17 @@ public class MenuAjouterSalle extends MiniMenu {
 		capacite.setColumns(10);
 	}
 
-	private void ajouterActionBoutonValider() {
+	@Override
+	public void ajouterActionBoutonValider() {
 		boutonValider.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String salle = nomSalle.getText();
 				int cap = Integer.parseInt(capacite.getText());
 
-				if(salle.isBlank() || cap <= 0) {
+				if(nomSalle.getText().isBlank() || cap <= 0) {
 					return;
 				}
-				Controller.ajouterSalle(salle, cap);
+				Controller.ajouterSalle(nomSalle.getText(), cap);
 				dispose();
 			}
 		});

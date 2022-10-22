@@ -31,6 +31,7 @@ public class MiniMenu extends JFrame {
 		
 		afficherBoutonAnnuler();
 		afficherBoutonValider();
+		ajouterActionBoutonValider();
 	}
 	
 	public void afficherBoutonAnnuler() {
@@ -60,4 +61,6 @@ public class MiniMenu extends JFrame {
 		panelPrincipal.add(boutonValider);	
 		
 	}
+
+	public void ajouterActionBoutonValider() {}
 }
