@@ -16,10 +16,12 @@ public class Reservation implements Serializable {
         throw new RuntimeException();
     }
 
-    public Reservation(Salle salle, ArrayList<Creneau> creneaux, Personne personne) {
+    public Reservation(long identifiant, Salle salle, ArrayList<Creneau> creneaux, Personne personne) {
         if(salle == null || creneaux.isEmpty() || personne == null) {
             throw new AssertionError();
         }
+        
+        this.identifiant = identifiant;
         this.salle = salle;
         this.creneaux = creneaux;
         this.personne = personne;
