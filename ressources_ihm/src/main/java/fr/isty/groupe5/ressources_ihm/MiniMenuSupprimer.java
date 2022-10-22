@@ -2,20 +2,14 @@ package fr.isty.groupe5.ressources_ihm;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class MiniMenuSupprimer extends JFrame {
-    private String titre;
-    private JButton boutonRetour;
     protected JButton boutonSupprimer;
     protected JPanel panelPrincipal;
 
     public MiniMenuSupprimer(String titre) {
-        this.titre = titre;
 
-        this.setTitle(this.titre);
+        this.setTitle(titre);
         this.setBounds(100, 100, 578, 357);
         this.setResizable(false);
 
@@ -31,17 +25,13 @@ public class MiniMenuSupprimer extends JFrame {
     }
 
     private void afficherBoutonRetour() {
-        boutonRetour = new JButton();
+        JButton boutonRetour = new JButton();
         panelPrincipal.add(boutonRetour);
         boutonRetour.setBounds(230, 283, 118, 29);
         boutonRetour.setText("Retour");
         boutonRetour.setFont(new Font("Times New Roman", Font.PLAIN, 13));
         boutonRetour.setBackground(new Color(46, 204, 113));
-        boutonRetour.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        });
+        boutonRetour.addActionListener(e -> dispose());
         boutonRetour.setHorizontalTextPosition(JButton.CENTER);
         boutonRetour.setOpaque(true);
     }
@@ -58,5 +48,6 @@ public class MiniMenuSupprimer extends JFrame {
         ajouterActionBoutonSupprimer();
     }
 
-    public void ajouterActionBoutonSupprimer() {}
+    public void ajouterActionBoutonSupprimer() {
+    }
 }

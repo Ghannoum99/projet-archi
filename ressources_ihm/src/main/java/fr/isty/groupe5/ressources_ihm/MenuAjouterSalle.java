@@ -1,19 +1,13 @@
 package fr.isty.groupe5.ressources_ihm;
 
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import fr.isty.groupe5.ressources_si.Controleur;
 
-@SuppressWarnings({ "serial" })
+import javax.swing.*;
+import java.awt.*;
+
 public class MenuAjouterSalle extends MiniMenu {
-	
-	private JLabel labelnomSalle;
-	private JLabel labelCapacite;
+
 	private JTextField nomSalle;
 	private JTextField capacite;
 
@@ -25,7 +19,7 @@ public class MenuAjouterSalle extends MiniMenu {
 	}
 	
 	public void afficherNomSalle() {
-		labelnomSalle = DefaultComponentFactory.getInstance().createLabel("Nom :");
+		JLabel labelnomSalle = DefaultComponentFactory.getInstance().createLabel("Nom :");
 		labelnomSalle.setFont(new Font("Arial", Font.PLAIN, 13));
 		labelnomSalle.setBounds(21, 33, 52, 27);
 		this.panelPrincipal.add(labelnomSalle);
@@ -38,7 +32,7 @@ public class MenuAjouterSalle extends MiniMenu {
 	}
 	
 	public void afficherCapacite() {
-		labelCapacite = new JLabel("Capacité :");
+		JLabel labelCapacite = new JLabel("Capacité :");
 		labelCapacite.setBounds(318, 39, 61, 16);
 		panelPrincipal.add(labelCapacite);
 		
@@ -50,18 +44,15 @@ public class MenuAjouterSalle extends MiniMenu {
 
 	@Override
 	public void ajouterActionBoutonValider() {
-		boutonValider.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				int cap = Integer.parseInt(capacite.getText());
+		boutonValider.addActionListener(e -> {
+			int cap = Integer.parseInt(capacite.getText());
 
-				if(nomSalle.getText().isBlank() || cap <= 0) {
-					return;
-				}
-				Controleur.ajouterSalle(Identifiant.genererIdentifiant(), nomSalle.getText(), cap);
-				Controleur.afficherSallesString();
-				dispose();
+			if(nomSalle.getText().isBlank() || cap <= 0) {
+				return;
 			}
+			Controleur.ajouterSalle(Identifiant.genererIdentifiant(), nomSalle.getText(), cap);
+			Controleur.afficherSallesString();
+			dispose();
 		});
 	}
 

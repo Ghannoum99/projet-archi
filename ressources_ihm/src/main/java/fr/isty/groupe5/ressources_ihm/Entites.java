@@ -9,8 +9,13 @@ public class Entites {
         this.valeur = valeur;
     }
 
-    public String libelle() { return this.libelle; }
-    public long valeur() { return this.valeur; }
+    public String libelle() {
+        return this.libelle;
+    }
+
+    public long valeur() {
+        return this.valeur;
+    }
 
     @Override
     public String toString() {

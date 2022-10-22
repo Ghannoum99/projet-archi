@@ -3,8 +3,6 @@ package fr.isty.groupe5.ressources_ihm;
 import fr.isty.groupe5.ressources_si.Controleur;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -16,9 +14,9 @@ public class MenuSupprimerPersonne extends MiniMenuSupprimer {
     public MenuSupprimerPersonne(String titre) {
         super(titre);
 
-        listePersonnes = (ArrayList<Entites>) Controleur.getPersonneRepo().stream().map(personne -> { return new Entites(personne.getNom() + " " + personne.getPrenom(), personne.getIdentifiant()); }).collect(Collectors.toList());
+        listePersonnes = (ArrayList<Entites>) Controleur.getPersonneRepo().stream().map(personne -> new Entites(personne.getNom() + " " + personne.getPrenom(), personne.getIdentifiant())).collect(Collectors.toList());
         personnes = new JComboBox<>();
-        for(Entites personne: listePersonnes) {
+        for (Entites personne : listePersonnes) {
             personnes.addItem(personne);
         }
         personnes.setBounds(150, 50, 130, 27);
@@ -27,14 +25,12 @@ public class MenuSupprimerPersonne extends MiniMenuSupprimer {
 
     @Override
     public void ajouterActionBoutonSupprimer() {
-        boutonSupprimer.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if(listePersonnes.isEmpty()) {
-                    return;
-                }
-                Controleur.supprimerPersonne(((Entites) Objects.requireNonNull(personnes.getSelectedItem())).valeur());
-                dispose();
+        boutonSupprimer.addActionListener(e -> {
+            if (listePersonnes.isEmpty()) {
+                return;
             }
+            Controleur.supprimerPersonne(((Entites) Objects.requireNonNull(personnes.getSelectedItem())).valeur());
+            dispose();
         });
     }
 }
