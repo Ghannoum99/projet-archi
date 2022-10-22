@@ -11,6 +11,8 @@ public class MenuPrincipal extends JFrame {
 	private final JPanel panelPrincipal;
 	private final JPanel panelMenu;
 	private final JPanel panelGauche;
+	private JTable tableReservations;
+	private String listeReservations;
 
 	public MenuPrincipal() {
 		this.setTitle("Groupe 5 - IATIC 5");
@@ -56,7 +58,7 @@ public class MenuPrincipal extends JFrame {
 		afficherBoutonSupprimerSalle();
 		afficherBoutonSupprimerPersonne();
 		afficherBoutonSupprimerCreneau();
-		afficherCalendrier();
+		afficherTableauReservation();
 	}
 
 	/* FONCTION PERMETTANT D'AFFICHER LE BOUTON : NOUVELLE RESERVATION **/
@@ -193,10 +195,20 @@ public class MenuPrincipal extends JFrame {
 		panelMenu.add(titre);
 	}
 
-	public void afficherCalendrier() {
-		final com.mindfusion.scheduling.Calendar calendrier = new com.mindfusion.scheduling.Calendar();
-		//calendrier.setTheme(ThemeType.Light);
-		calendrier.setBounds(205, 74, 895, 679);
-		panelPrincipal.add(calendrier);
+	public void afficherTableauReservation() {
+		final String colonnes[] = {"Réservations","Salle","Personne", "Date", "Créneau"};
+        String listeReservations[] []= {
+                {"Jean","Herard","Masculin","Herard","Masculin"},
+                {"Wiliams","Jean","Masculin","Herard","Masculin"},
+                {"Chuck","Batosky","Masculin","Herard","Masculin"},
+                {"Joel","Fouckan","Masculin","Herard","Masculin"}
+        };
+                
+		tableReservations = new JTable(listeReservations, colonnes);
+		tableReservations.setBounds(205, 100, 895, 679);
+		
+		JScrollPane scrollPane = new JScrollPane(tableReservations);
+		scrollPane.setBounds(356, 72, 744, 681);
+		panelGauche.add(scrollPane);
 	}
 }
