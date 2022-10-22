@@ -83,7 +83,7 @@ public class MenuAjouterPersonne extends MiniMenu {
 		boutonValider.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Integer valeurAge = Integer.parseInt(age.getText());
+				int valeurAge = Integer.parseInt(age.getText());
 				if(nom.getText().isBlank() || prenom.getText().isBlank() || valeurAge <= 0 || !genre.isValid()) {
 					return;
 				}
