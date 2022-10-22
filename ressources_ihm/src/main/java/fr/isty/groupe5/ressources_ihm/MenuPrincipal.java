@@ -55,6 +55,7 @@ public class MenuPrincipal extends JFrame {
 		afficherBoutonSauvegarder();
 		afficherBoutonSupprimerSalle();
 		afficherBoutonSupprimerPersonne();
+		afficherBoutonSupprimerCreneau();
 		afficherCalendrier();
 	}
 
@@ -168,6 +169,21 @@ public class MenuPrincipal extends JFrame {
 		boutonSupprimerPersonne.setHorizontalTextPosition(JButton.CENTER);
 		boutonSupprimerPersonne.setOpaque(true);
 		panelGauche.add(boutonSupprimerPersonne);
+	}
+
+	public void afficherBoutonSupprimerCreneau() {
+		JButton boutonSupprimerCreneau = new JButton();
+		boutonSupprimerCreneau.setBounds(25, 134, 150, 38);
+		boutonSupprimerCreneau.setText("Creneaux");
+		boutonSupprimerCreneau.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		boutonSupprimerCreneau.addActionListener(e -> {
+			MenuSupprimerCreneau menuSupprimerCreneau = new MenuSupprimerCreneau("Suppression d'un creneau");
+			menuSupprimerCreneau.setVisible(true);
+		});
+		boutonSupprimerCreneau.setBackground(new Color(166, 166, 166));
+		boutonSupprimerCreneau.setHorizontalTextPosition(JButton.CENTER);
+		boutonSupprimerCreneau.setOpaque(true);
+		panelGauche.add(boutonSupprimerCreneau);
 	}
 
 	public void afficherTitre() {
