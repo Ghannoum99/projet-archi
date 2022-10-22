@@ -5,16 +5,6 @@ import java.awt.EventQueue;
 public class Main {
 
     public static void main(String[] args) {
-        /*
-        //Test controller
-
-        System.out.println(Controller.getGenres());
-        Controller.ajouterPersonne(0, "VIDAL", "Antoine", 23, "HOMME");
-        Controller.afficherPersonnesString();
-        
-        //Fin Test controller
-        */
-
         EventQueue.invokeLater(() -> {
             try {
                 final MenuPrincipal frame = new MenuPrincipal();
@@ -23,6 +13,5 @@ public class Main {
                 e.printStackTrace();
             }
         });
-
     }
 }

@@ -27,6 +27,8 @@ public class MenuPrincipal extends JFrame {
 	private JButton boutonAjouterSalle;
 	private JButton boutonCharger;
 	private JButton boutonSauvegarder;
+	private JButton boutonSupprimerSalle;
+	private JButton boutonSupprimerPersonne;
 
 	public MenuPrincipal() {
 		this.setTitle("Groupe 5 - IATIC 5");
@@ -69,6 +71,8 @@ public class MenuPrincipal extends JFrame {
 		afficherBoutonAjouterSalle();
 		afficherBoutonCharger();
 		afficherBoutonSauvegarder();
+		afficherBoutonSupprimerSalle();
+		afficherBoutonSupprimerPersonne();
 		afficherCalendrier();
 	}
 
@@ -168,6 +172,42 @@ public class MenuPrincipal extends JFrame {
 		boutonSauvegarder.setHorizontalTextPosition(JButton.CENTER);
 		boutonSauvegarder.setOpaque(true);
 		panelMenu.add(boutonSauvegarder);
+	}
+
+	public void afficherBoutonSupprimerSalle() {
+		boutonSupprimerSalle = new JButton();
+		boutonSupprimerSalle.setBounds(25, 18, 150, 38);
+		boutonSupprimerSalle.setText("Salles");
+		boutonSupprimerSalle.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		boutonSupprimerSalle.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MenuSupprimerSalle menuSupprimerSalle = new MenuSupprimerSalle("Suppression d'une salle");
+				menuSupprimerSalle.setVisible(true);
+			}
+		});
+		boutonSupprimerSalle.setBackground(new Color(166, 166, 166));
+		boutonSupprimerSalle.setHorizontalTextPosition(JButton.CENTER);
+		boutonSupprimerSalle.setOpaque(true);
+		panelGauche.add(boutonSupprimerSalle);
+	}
+
+	public void afficherBoutonSupprimerPersonne() {
+		boutonSupprimerPersonne = new JButton();
+		boutonSupprimerPersonne.setBounds(25, 76, 150, 38);
+		boutonSupprimerPersonne.setText("Personnes");
+		boutonSupprimerPersonne.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		boutonSupprimerPersonne.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MenuSupprimerPersonne menuSupprimerPersonne = new MenuSupprimerPersonne("Suppression d'une personne");
+				menuSupprimerPersonne.setVisible(true);
+			}
+		});
+		boutonSupprimerPersonne.setBackground(new Color(166, 166, 166));
+		boutonSupprimerPersonne.setHorizontalTextPosition(JButton.CENTER);
+		boutonSupprimerPersonne.setOpaque(true);
+		panelGauche.add(boutonSupprimerPersonne);
 	}
 
 	public void afficherTitre() {
