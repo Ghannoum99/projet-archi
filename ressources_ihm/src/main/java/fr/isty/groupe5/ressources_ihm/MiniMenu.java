@@ -13,7 +13,6 @@ public class MiniMenu extends JFrame {
 	protected JButton boutonValider;
 	private JButton boutonAnnuler;
 	protected JPanel panelPrincipal;
-	protected JLabel texteErreur;
 
 	public MiniMenu(String titre) {
 		this.titre = titre;
@@ -32,8 +31,6 @@ public class MiniMenu extends JFrame {
 		
 		afficherBoutonAnnuler();
 		afficherBoutonValider();
-		afficherTexteErreur();
-
 	}
 	
 	public void afficherBoutonAnnuler() {
@@ -62,13 +59,5 @@ public class MiniMenu extends JFrame {
 		boutonValider.setOpaque(true);
 		panelPrincipal.add(boutonValider);	
 		
-	}
-
-	private void afficherTexteErreur() {
-		texteErreur = new JLabel();
-		texteErreur.setForeground(Color.RED);
-		texteErreur.setFont(new Font("Arial", Font.PLAIN, 13));
-		texteErreur.setBounds(20, 250, 538, 30);
-		panelPrincipal.add(texteErreur);
 	}
 }

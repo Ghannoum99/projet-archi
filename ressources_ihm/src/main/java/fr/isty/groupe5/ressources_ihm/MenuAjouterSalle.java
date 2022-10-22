@@ -57,21 +57,12 @@ public class MenuAjouterSalle extends MiniMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String salle = nomSalle.getText();
-				int cap = 0;
-
-				try {
-					cap = Integer.parseInt(capacite.getText());
-				} catch (NumberFormatException ne) {
-					texteErreur.setText("Veuillez rentrer une capacité");
-					return;
-				}
+				int cap = Integer.parseInt(capacite.getText());
 
 				if(salle.isBlank() || cap <= 0) {
-					texteErreur.setText("Nom ou capacité non valide");
 					return;
 				}
 				Controller.ajouterSalle(salle, cap);
-				Controller.afficherSallesString();
 				dispose();
 			}
 		});
