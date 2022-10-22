@@ -1,11 +1,12 @@
 package fr.isty.groupe5.ressources_si.entites;
 
 import fr.isty.groupe5.ressources_si.persistance.Sauvegarde;
+
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class CreneauRepo {
-    
+
     private static final String NOM_FICHIER = "creneaux.dat";
     private static ArrayList<Creneau> repo = new ArrayList<>();
 
@@ -14,15 +15,15 @@ public class CreneauRepo {
     }
 
     public static Creneau getCreneau(long identifiant) {
-        return repo.stream().filter(creneau -> creneau.getIdentifiant() == identifiant).limit(1).collect(Collectors.toList()).get(0); 
+        return repo.stream().filter(creneau -> creneau.getIdentifiant() == identifiant).limit(1).collect(Collectors.toList()).get(0);
     }
-    
+
     public static void ajouter(Creneau creneau) {
         repo.add(creneau);
     }
 
     public static void supprimer(long identifiant) {
-        repo.removeIf(creneau -> (creneau.getIdentifiant() == identifiant) );
+        repo.removeIf(creneau -> (creneau.getIdentifiant() == identifiant));
     }
 
     public static void raz() {

@@ -15,15 +15,15 @@ public class PersonneRepo {
     }
 
     public static Personne getPersonne(long identifiant) {
-        return repo.stream().filter(personne -> personne.getIdentifiant() == identifiant).limit(1).collect(Collectors.toList()).get(0); 
+        return repo.stream().filter(personne -> personne.getIdentifiant() == identifiant).limit(1).collect(Collectors.toList()).get(0);
     }
-    
+
     public static void ajouter(Personne personne) {
         repo.add(personne);
     }
 
     public static void supprimer(long identifiant) {
-        repo.removeIf(creneau -> (creneau.getIdentifiant() == identifiant) );
+        repo.removeIf(creneau -> (creneau.getIdentifiant() == identifiant));
     }
 
     public static void raz() {

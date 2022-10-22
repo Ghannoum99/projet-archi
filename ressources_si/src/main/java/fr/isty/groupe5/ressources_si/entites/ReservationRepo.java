@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class ReservationRepo {
-    
+
     private static final String NOM_FICHIER = "reservations.dat";
     private static ArrayList<Reservation> repo = new ArrayList<>();
 
     public static ArrayList<Reservation> repo() {
         return repo;
     }
-    
+
     public static Reservation getReservation(long identifiant) {
-        return repo.stream().filter(reservation -> reservation.getIdentifiant() == identifiant).limit(1).collect(Collectors.toList()).get(0); 
+        return repo.stream().filter(reservation -> reservation.getIdentifiant() == identifiant).limit(1).collect(Collectors.toList()).get(0);
     }
 
     public static void ajouter(Reservation reservation) {
@@ -23,7 +23,7 @@ public class ReservationRepo {
     }
 
     public static void supprimer(long identifiant) {
-        repo.removeIf(reservation -> (reservation.getIdentifiant() == identifiant) );
+        repo.removeIf(reservation -> (reservation.getIdentifiant() == identifiant));
     }
 
     public static void raz() {
