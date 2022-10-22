@@ -1,13 +1,12 @@
 package fr.isty.groupe5.ressources_ihm;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Identifiant {
     public static long genererIdentifiant() {
-        Date date = new Date();
-        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmssSSSS");
-        Long id = Long.parseLong(format.format(date));
-        return id;
+        LocalDateTime date = LocalDateTime.now();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSSS");
+        return Long.parseLong(format.format(date));
     }
 }
