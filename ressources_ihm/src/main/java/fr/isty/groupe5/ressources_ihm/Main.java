@@ -2,17 +2,14 @@ package fr.isty.groupe5.ressources_ihm;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
-
 import fr.isty.groupe5.ressources_si.Controller;
 import fr.isty.groupe5.ressources_si.entites.*;
 import fr.isty.groupe5.ressources_si.entites.Personne.Genre;
 
-
 public class Main {
 
-
 	public static void main(String[] args) {
-	    
+	    /*
 	    //Test controller
 	    Personne personne = new Personne("VIDAL", "Antoine", 23, Genre.HOMME);
 	    Personne personne2 = new Personne("a", "b", 45, Genre.FEMME);
@@ -36,7 +33,7 @@ public class Main {
 	    Controller.ajouterReservation(new Salle("bonjour", 50), CreneauRepo.repo(), personne);
 	    Controller.afficherReservationsString();
         //Fin Test controller
-
+*/
 
 		EventQueue.invokeLater(() -> {
 			try {

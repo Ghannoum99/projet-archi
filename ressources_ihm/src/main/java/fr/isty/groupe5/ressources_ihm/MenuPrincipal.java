@@ -9,12 +9,12 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 
 @SuppressWarnings({ "serial" })
 public class MenuPrincipal extends JFrame {
@@ -96,6 +96,13 @@ public class MenuPrincipal extends JFrame {
 		boutonAjouterPersonne.setBounds(497, 18, 143, 38);
 		boutonAjouterPersonne.setText("Ajouter une Personne");
 		boutonAjouterPersonne.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		boutonAjouterPersonne.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuAjouterPersonne menuAjouterPersonne = new MenuAjouterPersonne("Nouvelle Personne");
+                menuAjouterPersonne.setVisible(true);
+            }
+        });
 		boutonAjouterPersonne.setBackground(new Color(166, 166, 166));
 		boutonAjouterPersonne.setHorizontalTextPosition(JButton.CENTER);
 		boutonAjouterPersonne.setOpaque(true);
@@ -109,6 +116,12 @@ public class MenuPrincipal extends JFrame {
 		boutonAjouterSalle.setText("Ajouter une Salle");
 		boutonAjouterSalle.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		boutonAjouterSalle.setBackground(new Color(166, 166, 166));
+		boutonAjouterSalle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MenuAjouterSalle menuAjouterSalle = new MenuAjouterSalle("Nouvelle Salle");
+				menuAjouterSalle.setVisible(true);
+			}
+		});
 		boutonAjouterSalle.setHorizontalTextPosition(JButton.CENTER);
 		boutonAjouterSalle.setOpaque(true);
 		panelMenu.add(boutonAjouterSalle);
