@@ -10,29 +10,29 @@ import java.util.ArrayList;
 
 public class Sauvegarde {
 
-    public static void enregistrer(Object objet, String nomFichier) {
-        final File fichier = new File(nomFichier);
-        try (final FileOutputStream fo = new FileOutputStream(fichier);
-             final ObjectOutputStream oo = new ObjectOutputStream(fo)) {
-            oo.writeObject(objet);
-        } catch (final IOException e) {
-            e.printStackTrace();
-            System.err.println("Erreur d'accès au fichier de sauvegarde");
-        }
-    }
+	public static void enregistrer(Object objet, String nomFichier) {
+		final File fichier = new File(nomFichier);
+		try (final FileOutputStream fo = new FileOutputStream(fichier);
+				final ObjectOutputStream oo = new ObjectOutputStream(fo)) {
+			oo.writeObject(objet);
+		} catch (final IOException e) {
+			e.printStackTrace();
+			System.err.println("Erreur d'accès au fichier de sauvegarde");
+		}
+	}
 
-    public static Object charger(String nomFichier) {
-        final File fichier = new File(nomFichier);
-        try (FileInputStream fi = new FileInputStream(fichier); ObjectInputStream oi = new ObjectInputStream(fi)) {
-            return oi.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            return new ArrayList<>();
-        }
-    }
+	public static Object charger(String nomFichier) {
+		final File fichier = new File(nomFichier);
+		try (FileInputStream fi = new FileInputStream(fichier); ObjectInputStream oi = new ObjectInputStream(fi)) {
+			return oi.readObject();
+		} catch (IOException | ClassNotFoundException e) {
+			return new ArrayList<>();
+		}
+	}
 
-    public static void supprimer(String nomFichier) {
-        final File fichier = new File(nomFichier);
-        fichier.delete();
-    }
+	public static void supprimer(String nomFichier) {
+		final File fichier = new File(nomFichier);
+		fichier.delete();
+	}
 
 }
