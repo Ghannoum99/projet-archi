@@ -53,7 +53,7 @@ public class MenuPrincipal extends JFrame {
         panelPrincipal.add(panelGauche);
         panelGauche.setLayout(null);
 
-        afficherBoutonNewBooking();
+        afficherBoutonAjouterReservation();
         afficherBoutonAjouterPersonne();
         afficherBoutonAjouterSalle();
         afficherBoutonAjouterCreneau();
@@ -69,7 +69,7 @@ public class MenuPrincipal extends JFrame {
 
     /* FONCTION PERMETTANT D'AFFICHER LE BOUTON : NOUVELLE RESERVATION **/
     /* CE BOUTON NOUS PERMETTRA D'AJOUTER UNE RESERVATION **/
-    public void afficherBoutonNewBooking() {
+    public void afficherBoutonAjouterReservation() {
         JButton boutonAjouterReservation = new JButton();
         boutonAjouterReservation.setBounds(20, 12, 200, 47);
         boutonAjouterReservation.setText("Ajouter une réservation");
