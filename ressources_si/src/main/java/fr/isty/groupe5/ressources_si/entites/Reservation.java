@@ -1,4 +1,4 @@
-package fr.isty.groupe5.ressources_si.controleur.entites;
+package fr.isty.groupe5.ressources_si.entites;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import fr.isty.groupe5.ressources_si.controleur.entites.Creneau;
-import fr.isty.groupe5.ressources_si.controleur.entites.CreneauRepo;
-import fr.isty.groupe5.ressources_si.controleur.entites.Personne;
-import fr.isty.groupe5.ressources_si.controleur.entites.Personne.Genre;
-import fr.isty.groupe5.ressources_si.controleur.entites.PersonneRepo;
-import fr.isty.groupe5.ressources_si.controleur.entites.Reservation;
-import fr.isty.groupe5.ressources_si.controleur.entites.ReservationRepo;
-import fr.isty.groupe5.ressources_si.controleur.entites.Salle;
-import fr.isty.groupe5.ressources_si.controleur.entites.SalleRepo;
+import fr.isty.groupe5.ressources_si.entites.Creneau;
+import fr.isty.groupe5.ressources_si.entites.CreneauRepo;
+import fr.isty.groupe5.ressources_si.entites.Personne;
+import fr.isty.groupe5.ressources_si.entites.PersonneRepo;
+import fr.isty.groupe5.ressources_si.entites.Reservation;
+import fr.isty.groupe5.ressources_si.entites.ReservationRepo;
+import fr.isty.groupe5.ressources_si.entites.Salle;
+import fr.isty.groupe5.ressources_si.entites.SalleRepo;
+import fr.isty.groupe5.ressources_si.entites.Personne.Genre;
 
 public class Controleur {
 
