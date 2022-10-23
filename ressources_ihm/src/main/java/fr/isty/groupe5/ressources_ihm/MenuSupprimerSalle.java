@@ -15,7 +15,7 @@ public class MenuSupprimerSalle extends MiniMenuSupprimer {
     public MenuSupprimerSalle(String titre) {
         super(titre);
 
-        listeSalles = (ArrayList<Entites>) Controleur.getSalleRepo().stream().map(salle -> new Entites(salle.getNom() + " (" + salle.getCapacite() + ")", salle.getIdentifiant())).collect(Collectors.toList());
+        listeSalles = Controleur.getSalleRepo().stream().map(salle -> new Entites(salle.getNom() + " (" + salle.getCapacite() + ")", salle.getIdentifiant())).collect(Collectors.toCollection(ArrayList::new));
         salles = new JComboBox<>();
         for (Entites salle : listeSalles) {
             salles.addItem(salle);

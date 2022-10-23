@@ -15,7 +15,7 @@ public class MenuSupprimerPersonne extends MiniMenuSupprimer {
     public MenuSupprimerPersonne(String titre) {
         super(titre);
 
-        listePersonnes = (ArrayList<Entites>) Controleur.getPersonneRepo().stream().map(personne -> new Entites(personne.getNom() + " " + personne.getPrenom(), personne.getIdentifiant())).collect(Collectors.toList());
+        listePersonnes = Controleur.getPersonneRepo().stream().map(personne -> new Entites(personne.getNom() + " " + personne.getPrenom(), personne.getIdentifiant())).collect(Collectors.toCollection(ArrayList::new));
         personnes = new JComboBox<>();
         for (Entites personne : listePersonnes) {
             personnes.addItem(personne);

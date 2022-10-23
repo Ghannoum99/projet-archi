@@ -79,7 +79,6 @@ public class MenuAjouterPersonne extends MiniMenu {
                 return;
             }
             Controleur.ajouterPersonne(Identifiant.genererIdentifiant(), nom.getText(), prenom.getText(), valeurAge, Objects.requireNonNull(genre.getSelectedItem()).toString());
-            Controleur.afficherPersonnesString();
             dispose();
         });
     }

@@ -52,7 +52,6 @@ public class MenuAjouterSalle extends MiniMenu {
 				return;
 			}
 			Controleur.ajouterSalle(Identifiant.genererIdentifiant(), nomSalle.getText(), cap);
-			Controleur.afficherSallesString();
 			dispose();
 		});
 	}

@@ -15,7 +15,7 @@ public class MenuSupprimerCreneau extends MiniMenuSupprimer {
     public MenuSupprimerCreneau(String titre) {
         super(titre);
 
-        listeCreneaux = (ArrayList<Entites>) Controleur.getCreneauRepo().stream().map(creneau -> new Entites(creneau.getDebut() + " - " + creneau.getFin(), creneau.getIdentifiant())).collect(Collectors.toList());
+        listeCreneaux = Controleur.getCreneauRepo().stream().map(creneau -> new Entites(creneau.getDebut() + " - " + creneau.getFin(), creneau.getIdentifiant())).collect(Collectors.toCollection(ArrayList::new));
         creneaux = new JComboBox<>();
         for (Entites creneau : listeCreneaux) {
             creneaux.addItem(creneau);
