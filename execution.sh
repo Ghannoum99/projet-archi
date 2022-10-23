@@ -1,1 +1,1 @@
-java -cp "ressources_si.jar;ressources_ihm.jar" fr.isty.groupe5.ressources_ihm.Main
+java -cp "ressources_si.jar:ressources_ihm.jar" fr.isty.groupe5.ressources_ihm.Main
