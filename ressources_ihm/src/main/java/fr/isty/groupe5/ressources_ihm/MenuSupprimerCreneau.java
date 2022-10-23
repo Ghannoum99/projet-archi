@@ -9,15 +9,15 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class MenuSupprimerCreneau extends MiniMenuSupprimer {
-    private final JComboBox<Entites> creneaux;
-    private final ArrayList<Entites> listeCreneaux;
+    private final JComboBox<Entite> creneaux;
+    private final ArrayList<Entite> listeCreneaux;
 
     public MenuSupprimerCreneau(String titre) {
         super(titre);
 
-        listeCreneaux = Controleur.getCreneauRepo().stream().map(creneau -> new Entites(creneau.getDebut() + " - " + creneau.getFin(), creneau.getIdentifiant())).collect(Collectors.toCollection(ArrayList::new));
+        listeCreneaux = Controleur.getCreneauRepo().stream().map(creneau -> new Entite(creneau.getDebut() + " - " + creneau.getFin(), creneau.getIdentifiant())).collect(Collectors.toCollection(ArrayList::new));
         creneaux = new JComboBox<>();
-        for (Entites creneau : listeCreneaux) {
+        for (Entite creneau : listeCreneaux) {
             creneaux.addItem(creneau);
         }
         creneaux.setBounds(100, 50, 200, 27);
@@ -30,7 +30,7 @@ public class MenuSupprimerCreneau extends MiniMenuSupprimer {
             if (listeCreneaux.isEmpty()) {
                 return;
             }
-            Controleur.supprimerCreneau(((Entites) Objects.requireNonNull(creneaux.getSelectedItem())).valeur());
+            Controleur.supprimerCreneau(((Entite) Objects.requireNonNull(creneaux.getSelectedItem())).valeur());
             dispose();
         });
     }

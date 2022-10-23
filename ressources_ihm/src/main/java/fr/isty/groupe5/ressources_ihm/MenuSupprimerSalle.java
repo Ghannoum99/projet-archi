@@ -9,15 +9,15 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class MenuSupprimerSalle extends MiniMenuSupprimer {
-    private final JComboBox<Entites> salles;
-    private final ArrayList<Entites> listeSalles;
+    private final JComboBox<Entite> salles;
+    private final ArrayList<Entite> listeSalles;
 
     public MenuSupprimerSalle(String titre) {
         super(titre);
 
-        listeSalles = Controleur.getSalleRepo().stream().map(salle -> new Entites(salle.getNom() + " (" + salle.getCapacite() + ")", salle.getIdentifiant())).collect(Collectors.toCollection(ArrayList::new));
+        listeSalles = Controleur.getSalleRepo().stream().map(salle -> new Entite(salle.getNom() + " (" + salle.getCapacite() + ")", salle.getIdentifiant())).collect(Collectors.toCollection(ArrayList::new));
         salles = new JComboBox<>();
-        for (Entites salle : listeSalles) {
+        for (Entite salle : listeSalles) {
             salles.addItem(salle);
         }
         salles.setBounds(150, 50, 130, 27);
@@ -30,7 +30,7 @@ public class MenuSupprimerSalle extends MiniMenuSupprimer {
             if (listeSalles.isEmpty()) {
                 return;
             }
-            Controleur.supprimerSalle(((Entites) Objects.requireNonNull(salles.getSelectedItem())).valeur());
+            Controleur.supprimerSalle(((Entite) Objects.requireNonNull(salles.getSelectedItem())).valeur());
             dispose();
         });
     }

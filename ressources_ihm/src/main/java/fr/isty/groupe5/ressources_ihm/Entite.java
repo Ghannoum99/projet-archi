@@ -1,10 +1,10 @@
 package fr.isty.groupe5.ressources_ihm;
 
-public class Entites {
+public class Entite {
     private final String libelle;
     private final long valeur;
 
-    public Entites(String libelle, long valeur) {
+    public Entite(String libelle, long valeur) {
         this.libelle = libelle;
         this.valeur = valeur;
     }
