@@ -282,6 +282,9 @@ public class MenuPrincipal extends JFrame {
         boutonSupprimerReservation.setText("Supprimer");
         boutonSupprimerReservation.setFont(new Font("Times New Roman", Font.PLAIN, 13));
         boutonSupprimerReservation.addActionListener(e -> {
+            if(tableauReservations.isSelectionEmpty()) {
+                return;
+            }
             Controleur.supprimerReservation(tableauReservations.getSelectedValue().valeur());
             actualiserTableau();
         });
@@ -297,6 +300,9 @@ public class MenuPrincipal extends JFrame {
         boutonModifierReservation.setText("Modifier");
         boutonModifierReservation.setFont(new Font("Times New Roman", Font.PLAIN, 13));
         boutonModifierReservation.addActionListener(e -> {
+            if(tableauReservations.isSelectionEmpty()) {
+                return;
+            }
             final MenuReservation menuReservation = new MenuReservation("Modifier la réservation",
                     tableauReservations.getSelectedValue().valeur());
             menuReservation.setVisible(true);
