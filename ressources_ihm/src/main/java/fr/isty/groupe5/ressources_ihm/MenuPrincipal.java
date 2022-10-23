@@ -50,10 +50,10 @@ public class MenuPrincipal extends JFrame {
 		panelPrincipal.add(panelGauche);
 		panelGauche.setLayout(null);
 
-		afficherTitre();
 		afficherBoutonNewBooking();
 		afficherBoutonAjouterPersonne();
 		afficherBoutonAjouterSalle();
+		afficherBoutonAjouterCreneau();
 		afficherBoutonCharger();
 		afficherBoutonSauvegarder();
 		afficherBoutonSupprimerSalle();
@@ -66,7 +66,7 @@ public class MenuPrincipal extends JFrame {
 	/* CE BOUTON NOUS PERMETTRA D'AJOUTER UNE RESERVATION **/
 	public void afficherBoutonNewBooking() {
 		JButton boutonAjouterReservation = new JButton();
-		boutonAjouterReservation.setBounds(100, 12, 200, 47);
+		boutonAjouterReservation.setBounds(20, 12, 200, 47);
 		boutonAjouterReservation.setText("Ajouter une réservation");
 		boutonAjouterReservation.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		boutonAjouterReservation.setBackground(new Color(46, 204, 113));
@@ -81,11 +81,11 @@ public class MenuPrincipal extends JFrame {
 
 	public void afficherBoutonAjouterPersonne() {
 		JButton boutonAjouterPersonne = new JButton();
-		boutonAjouterPersonne.setBounds(497, 18, 143, 38);
-		boutonAjouterPersonne.setText("Ajouter une Personne");
+		boutonAjouterPersonne.setBounds(417, 18, 163, 38);
+		boutonAjouterPersonne.setText("Ajouter une personne");
 		boutonAjouterPersonne.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		boutonAjouterPersonne.addActionListener(e -> {
-			MenuAjouterPersonne menuAjouterPersonne = new MenuAjouterPersonne("Nouvelle Personne");
+			MenuAjouterPersonne menuAjouterPersonne = new MenuAjouterPersonne("Nouvelle personne");
 			menuAjouterPersonne.setVisible(true);
 		});
 		boutonAjouterPersonne.setBackground(new Color(166, 166, 166));
@@ -97,12 +97,12 @@ public class MenuPrincipal extends JFrame {
 
 	public void afficherBoutonAjouterSalle() {
 		JButton boutonAjouterSalle = new JButton();
-		boutonAjouterSalle.setBounds(341, 18, 143, 38);
-		boutonAjouterSalle.setText("Ajouter une Salle");
+		boutonAjouterSalle.setBounds(261, 18, 143, 38);
+		boutonAjouterSalle.setText("Ajouter une salle");
 		boutonAjouterSalle.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		boutonAjouterSalle.setBackground(new Color(166, 166, 166));
 		boutonAjouterSalle.addActionListener(e -> {
-			MenuAjouterSalle menuAjouterSalle = new MenuAjouterSalle("Nouvelle Salle");
+			MenuAjouterSalle menuAjouterSalle = new MenuAjouterSalle("Nouvelle salle");
 			menuAjouterSalle.setVisible(true);
 		});
 		boutonAjouterSalle.setHorizontalTextPosition(JButton.CENTER);
@@ -110,9 +110,24 @@ public class MenuPrincipal extends JFrame {
 		panelMenu.add(boutonAjouterSalle);
 	}
 
+	public void afficherBoutonAjouterCreneau() {
+		JButton boutonAjouterCreneau = new JButton();
+		boutonAjouterCreneau.setBounds(593, 18, 143, 38);
+		boutonAjouterCreneau.setText("Ajouter un créneau");
+		boutonAjouterCreneau.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		boutonAjouterCreneau.setBackground(new Color(166, 166, 166));
+		boutonAjouterCreneau.addActionListener(e -> {
+			MenuAjouterCreneau menuAjouterCreneau = new MenuAjouterCreneau("Nouveau créneau");
+			menuAjouterCreneau.setVisible(true);
+		});
+		boutonAjouterCreneau.setHorizontalTextPosition(JButton.CENTER);
+		boutonAjouterCreneau.setOpaque(true);
+		panelMenu.add(boutonAjouterCreneau);
+	}
+
 	public void afficherBoutonCharger() {
 		JButton boutonCharger = new JButton();
-		boutonCharger.setBounds(653, 18, 143, 38);
+		boutonCharger.setBounds(809, 18, 100, 38);
 		boutonCharger.setText("Charger");
 		boutonCharger.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		boutonCharger.addActionListener(e -> {
@@ -129,7 +144,7 @@ public class MenuPrincipal extends JFrame {
 
 	public void afficherBoutonSauvegarder() {
 		JButton boutonSauvegarder = new JButton();
-		boutonSauvegarder.setBounds(809, 18, 143, 38);
+		boutonSauvegarder.setBounds(922, 18, 130, 38);
 		boutonSauvegarder.setText("Sauvegarder");
 		boutonSauvegarder.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		boutonSauvegarder.addActionListener(e -> {
@@ -187,13 +202,6 @@ public class MenuPrincipal extends JFrame {
 		boutonSupprimerCreneau.setHorizontalTextPosition(JButton.CENTER);
 		boutonSupprimerCreneau.setOpaque(true);
 		panelGauche.add(boutonSupprimerCreneau);
-	}
-
-	public void afficherTitre() {
-		final JLabel titre = new JLabel("Titre");
-		titre.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		titre.setBounds(17, 21, 79, 26);
-		panelMenu.add(titre);
 	}
 
 	public void afficherTableauReservation() {
