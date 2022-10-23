@@ -20,7 +20,7 @@ public class MenuSupprimerCreneau extends MiniMenuSupprimer {
         for (Entites creneau : listeCreneaux) {
             creneaux.addItem(creneau);
         }
-        creneaux.setBounds(150, 50, 130, 27);
+        creneaux.setBounds(100, 50, 200, 27);
         panelPrincipal.add(creneaux);
     }
 
